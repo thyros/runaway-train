@@ -11,11 +11,10 @@ public class AboveCamera : MonoBehaviour {
 
 	void Start() {
 		transform.position = target.position + offset;
-		transform.LookAt(target, Vector3.forward);
+		transform.rotation = Quaternion.LookRotation(Vector3.down, Vector3.forward);
 	}
 
 	void Update () {
 		transform.position = Vector3.Lerp(transform.position, target.position + offset, followSpeed * Time.deltaTime);
-		transform.LookAt(target, Vector3.forward);
 	}
 }
